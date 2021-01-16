@@ -1,7 +1,6 @@
 max = 0
-stop_cicle = False
 number = int(input('Введите любое положительое число '))
-# если введенное чисо меньше десяти то мы прибавляем к этому значению 10
+# если введенное чисо меньше десяти то мы прибавляем к этому значению 10 что бы единичное число смого пройти проверку цикла
 if number >= 1 and number <= 9:
     number = number + 10
 while number // 10 !=0:
@@ -12,10 +11,13 @@ while number // 10 !=0:
         max = number_min
     else:
         max = max
+    # переопределяем переменную number на остаток целого числа от 10
     number = number // 10
+    # когда намбер останется единичным число то мы сравниваем его с переменной максимум и завершаем цикл
     if number >= 1 and number <= 9:
-        number = number + 10
-        stop_cicle = True
-    if stop_cicle == True:
-        break
+        if number >= max:
+            max = number
+        else:
+            max = max
+
 print(f'Самая большая цифра в вашем числе это {max}')
