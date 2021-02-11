@@ -1,6 +1,6 @@
 class Division_0():
     def __str__(self):
-        return print(f'Вы делите на 0. Так нельзя.')
+        return f'Вы делите на 0. Так нельзя.'
 
 num_1 = int(input('Ведите первое число ? '))
 num_2 = int(input('Ведите второе число ? '))
