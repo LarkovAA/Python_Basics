@@ -52,5 +52,7 @@ class Date:
     def __str__(self):
         return Date.date_str
 
-print(Date.convert_number('-2-15-1993'))
+
+date_birth = input('Введите дату вашего рождения ?? (разделите число месяц год знаком -) ')
+print(Date.convert_number(date_birth))
 print(Date.validation())
