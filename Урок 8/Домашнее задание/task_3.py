@@ -1,21 +1,22 @@
 class Exception():
-    number_str = None
+    list_number = []
+    number_attribut = ''
     @staticmethod
     def check_exception(number):
+        Exception.number_attribut = number
         try:
-            number = int(number)
+            Exception.number_attribut = int(number)
         except:
-            pass
+            return print('Вы ввели не число')
         else:
-            Exception.number_strmber = number
-            return Exception.number_strmber
+            Exception.list_number.append(Exception.number_attribut)
+            return Exception.list_number
 
 input_value = None
-list_number = []
 while input_value != 'exit':
     input_value = input('Введите число. Для выхода наберите exit ')
     if input_value == 'exit':
         break
-    list_number.append(Exception.check_exception(input_value))
+    Exception.check_exception(input_value)
 
-print(list_number)
+print(Exception.list_number)
