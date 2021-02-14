@@ -1,4 +1,11 @@
 import random
+def generait_id(list_num):
+    while True:
+        num = int(random.randint(1000, 9999))
+        if num not in list_num:
+            list_num.append(num)
+            return num
+
 # создаем класс склад орг техники
 class Office_equipment_warehouse():
     # создаем списки в которые будем записывать созданные объекты орг техники и их колличество какое было переведено на склад или в подразделения
@@ -60,11 +67,14 @@ class Office_equipment():
         self.stamo = stamp
         self.model = model
         self.price = price
-        while True:
+        self.id = generait_id(Office_equipment_warehouse.list_id)
+        '''
+                while True:
             self.id = int(random.randint(1000, 9999))
             if self.id not in Office_equipment_warehouse.list_id:
                 Office_equipment_warehouse.list_id.append(self.id)
                 break
+        '''
 
 class Printer(Office_equipment):
     Office_equipment.quantity_office_equipment += 1
@@ -75,11 +85,7 @@ class Printer(Office_equipment):
             self.stamp = stamp
             self.model = model
             self.paint_brand = paint_brand
-            while True:
-                self.id = int(random.randint(1000, 9999))
-                if self.id not in Office_equipment_warehouse.list_id:
-                    Office_equipment_warehouse.list_id.append(self.id)
-                    break
+            self.id = generait_id(Office_equipment_warehouse.list_id)
             self.tuple_atribut_object = (self.stamp, self.model, self.price, self.id, self.paint_brand, self.paint_speed)
 
 
@@ -91,11 +97,7 @@ class Scaner(Office_equipment):
         self.model = model
         self.price = price
         self.scaling = scaling
-        while True:
-            self.id = int(random.randint(1000, 9999))
-            if self.id not in Office_equipment_warehouse.list_id:
-                Office_equipment_warehouse.list_id.append(self.id)
-                break
+        self.id = generait_id(Office_equipment_warehouse.list_id)
         self.tuple_atribut_object = (self.stamp, self.model, self.price, self.id, self.scaling)
 
 
@@ -110,12 +112,7 @@ class Copy_shop(Office_equipment):
         self.paint_brand = paint_brand
         self.paint_speed = paint_speed
         self.scaling = scaling
-        self.id = None
-        while True:
-            self.id = int(random.randint(1000, 9999))
-            if self.id not in Office_equipment_warehouse.list_id:
-                Office_equipment_warehouse.list_id.append(self.id)
-                break
+        self.id = generait_id(Office_equipment_warehouse.list_id)
 
         self.tuple_atribut_object = (self.stamp, self.model, self.price, self.id, self.paint_brand, self.paint_speed,
                                self.scaling)
